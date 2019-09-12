@@ -1,4 +1,4 @@
-""" function to test is number is prime """
+""" function to test is number is prime nos """
 from math import sqrt
 def is_prime(x):
     if x < 2 :
