@@ -1,0 +1,5 @@
+create a function that - 
+ loops data from a  
+ passenger seats generator function (yeild when a passenger is found)
+ and feeds it to a 
+ booking card creator function(done)
