@@ -3,3 +3,8 @@ create a function that -
  passenger seats generator function (yeild when a passenger is found)
  and feeds it to a 
  booking card creator function(done)
+
+ Create individual Aircraft classes 1. BOEING SN1234 2. AIRBUS that 
+ returns the same arguments as Aircraft
+- Find what is common and make that a base class
+- Make the individual air classes inherit the base class
