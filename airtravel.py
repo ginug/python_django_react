@@ -15,8 +15,7 @@ class Flight:
             raise ValueError("Invalid route number '{}'".str.format(str(self._number)))
         rows, seats = self._aircraft.seating_plan()
         self._seating = [None] + [{letter: None for letter in seats} for _ in rows]
-
-
+        
     def number(self):
         return self._number
 
@@ -50,7 +49,7 @@ class Flight:
         row,letter=self._parse_seat(seat)
 
         if self._seating[row][letter] is not None:
-            raise ValueError("Seat{} is already occupied".format(seat))
+            raise ValueError("Seat {} is already occupied".format(seat))
 
         self._seating[row][letter]=passenger
 
@@ -63,24 +62,49 @@ class Flight:
     def num_available_seats(self):
         return sum(sum(1 for seat in row.values() if seat is None )
                     for row in self._seating if row is not None)
-class Aircraft:
-        def __init__(self,  registration, model, num_rows, num_seats_per_rows):
-            self._registration = registration
-            self._model = model
-            self._num_rows = num_rows
-            self._num_seats_per_rows = num_seats_per_rows
         
+    def gen_passenger_seats(self):
+         rows, seat_letters = self._aircraft.seating_plan()
+         for row in rows:
+              if row is not None:
+                  for sl in seat_letters:
+                      passenger=self._seating[row][sl]
+                      if passenger is not None:
+                          yield (passenger , "{}{}".format(row,sl))
+      
+    def print_card(self, gen_passenger_seats):
+        for passenger,seat in  self.gen_passenger_seats():
+            booking_card_printer(passenger, seat, self.number(), self.airline())
+         
+class Aircraft:
+        def __init__(self,  registration):
+            self._registration = registration
+                   
         def registration(self):
             return self._registration
-
-        def model(self):
-            return self._model
-            
-        def seating_plan(self):
-           return ( range(1, self._num_rows + 1), "ABCDEFJK"[:self._num_seats_per_rows])
+                   
+        def num_seats(self):
+           rows, row_seats = self.seating_plan()
+           return len(rows) * len(row_seats)
+        
+class BOEING_Aircraft(Aircraft):
+    
+    def model(self):
+        return 'BOEING'
+    
+    def seating_plan(self):
+        return (range(1,23),"ABCD")
+    
+    
+class AIRBUS_Aircraft(Aircraft):
+    def model(self):
+        return 'AIRBUS'
+    
+    def seating_plan(self):
+        return (range(1,26),"ABCDEF")
 
 def make_flight():
-    return Aircraft('G-EUPT',  'Airbus A319', num_rows=22, num_seats_per_rows=4)  
+    return AIRBUS_Aircraft('G-EUPT')
 
 def booking_card_printer(passenger, seat, flight, aircraft):
     """
@@ -91,7 +115,7 @@ def booking_card_printer(passenger, seat, flight, aircraft):
            " Seat: {1}" \
            " Flight: {2}" \
            " Aircraft: {3}" \
-            "        |".format(passenger.upper(), seat.upper(), flight.upper(), aircraft.upper())
+            "        |".format(passenger, seat, flight, aircraft)
     upper_line=' '+'_'*(len(output)-2)
     lower_line=' '+'_'*(len(output)-2)
     empty_line1='|'+' '*(len(output)-2) +'|'    
