@@ -7,3 +7,7 @@ print(response.status_code)
 print(response.text)  
 print(response.links)
 
+f = open('stoverflow.txt', mode='wt', encoding='utf-8')
+f.writelines(response.text)
+f.close()
+
