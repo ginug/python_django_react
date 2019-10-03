@@ -13,3 +13,12 @@ create a function that -
   141  python manage.py sqlmigrate polls 0001
   142  python3 manage.py sqlmigrate polls 0001
   143  python3 manage.py migrate
+
+
+  Generic views - 
+
+  Earlier the index function was returning a render
+  with request, url, context - a dictionary with the list to show
+
+generic views uses classes
+
