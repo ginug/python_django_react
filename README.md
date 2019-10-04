@@ -1,2 +1,2 @@
-# python_fundamentals
-Code from the python fundamentals course
+Projects with Python, DRF, React ...
+
