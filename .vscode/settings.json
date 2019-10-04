@@ -1,5 +1,13 @@
 {
     "editor.fontLigatures": true,
     "editor.fontSize": 16,
-    "python.pythonPath": "/Users/Ginu/Git - Python Fundamentals/test_django/bin/python3"
+    "python.pythonPath": "/usr/local/bin/python3","/Users/Ginu/Git - Python Fundamentals/lead_manager_react_django/bin/python3"
+    "terminal.integrated.letterSpacing": 1,
+    "terminal.integrated.fontWeightBold": "500",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "workbench.fontAliasing": "auto",
+    "workbench.colorTheme": "Sublime Material Theme - Dark",
+    "python.venvFolders": [
+        "/Users/Ginu/Git - Python Fundamentals/lead_manager_react_django"
+    ]
 }
