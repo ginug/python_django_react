@@ -1,0 +1,24 @@
+{
+    "pythom.pythonPath": "${workspaceFolder}/backend/env/bin/python3",
+    "team.showWelcomeMessage": false,
+    "editor.formatOnSave": true,
+    "python.linting.pycodestyleEnabled": false,
+    "pip3 install pylint": "/Users/Ginu/Git - Python Fundamentals/djreact/backend/env/bin/pylint",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django",
+    ],
+    "python.venvPath": "${workspaceFolder}/backend/env/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "vsintellicode.java.completionsEnabled": false,
+    "python.pythonPath": "backend/env/bin/python",
+    "python.envFile": "${workspaceFolder}/backend/src/.env",
+    "python.autoComplete.extraPaths": [
+        "./backend/src"
+    ],
+    "python.linting.enabled": true,
+    "python.jediEnabled": true
+
+
+}

@@ -1,0 +1,15 @@
+React - 
+Components - alows you to compose complex UI
+
+React.Component
+
+class ShoopinglIst extends React.Component {
+    render() {
+        return( <div className="shopping-list")>
+        --- html for the list
+
+    }
+}
+
+params - prop
+JSX - html like syntax used by react to create react Components
